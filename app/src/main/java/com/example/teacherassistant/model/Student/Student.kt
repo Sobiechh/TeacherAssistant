@@ -1,9 +1,9 @@
-package com.example.teacherassistant.model
+package com.example.teacherassistant.model.Student
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Students")
+@Entity(tableName = "student_table")
 data class Student (
     @PrimaryKey(autoGenerate = true)
     val id: Int,

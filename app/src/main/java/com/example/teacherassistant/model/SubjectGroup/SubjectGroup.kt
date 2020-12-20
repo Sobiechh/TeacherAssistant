@@ -1,12 +1,14 @@
-package com.example.teacherassistant.model
+package com.example.teacherassistant.model.SubjectGroup
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
 import androidx.room.PrimaryKey
+import com.example.teacherassistant.model.Student.Student
+import com.example.teacherassistant.model.Subject.Subject
 
 @Entity(
-    tableName = "SubjectGroups",
+    tableName = "subjectGroup_table",
     foreignKeys  = [
     ForeignKey(
         entity = Student::class,
@@ -19,9 +21,10 @@ import androidx.room.PrimaryKey
         parentColumns = ["id"],
         childColumns = ["subjectID"],
         onDelete= CASCADE
-    ),
+    )
     ]
 )
+
 data class SubjectGroup (
     @PrimaryKey(autoGenerate = true)
     val id: Int,

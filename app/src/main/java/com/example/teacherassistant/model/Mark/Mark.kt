@@ -1,14 +1,14 @@
-package com.example.teacherassistant.model
+package com.example.teacherassistant.model.Mark
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity(tableName = "Marks")
+@Entity(tableName = "mark_table")
 data class Mark (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val description: String,
+    val note: String= "",
     val grade: Double,
-    val gradeDate: Date
+    val date: Date= Date(0)
 )
