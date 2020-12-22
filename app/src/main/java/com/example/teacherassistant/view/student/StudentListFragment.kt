@@ -7,23 +7,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.teacherassistant.R
-import kotlinx.android.synthetic.main.fragment_list_student.view.*
+import kotlinx.android.synthetic.main.fragment_student_list.view.*
 
-
-class ListStudentFragment : Fragment() {
+class StudentListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_list_student,  container, false)
+        val view = inflater.inflate(R.layout.fragment_student_list, container, false)
 
         view.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_listStudentFragment_to_addStudentFragment)
+            findNavController().navigate(R.id.action_studentListFragment_to_studentAddFragment)
         }
 
         return view
     }
-
 }

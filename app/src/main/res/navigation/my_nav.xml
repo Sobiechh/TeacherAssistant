@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/studentAddFragment"
+        android:name="com.example.teacherassistant.view.student.StudentAddFragment"
+        android:label="Add student"
+        tools:layout="@layout/fragment_student_add" >
+        <action
+            android:id="@+id/action_studentAddFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentListFragment"
+        android:name="com.example.teacherassistant.view.student.StudentListFragment"
+        android:label="Students list"
+        tools:layout="@layout/fragment_student_list" >
+        <action
+            android:id="@+id/action_studentListFragment_to_studentAddFragment"
+            app:destination="@id/studentAddFragment" />
+        <action
+            android:id="@+id/action_studentListFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.teacherassistant.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_todayFragment"
+            app:destination="@id/todayFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_lessonsFragment"
+            app:destination="@id/lessonsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/todayFragment"
+        android:name="com.example.teacherassistant.TodayFragment"
+        android:label="fragment_today"
+        tools:layout="@layout/fragment_today" >
+        <action
+            android:id="@+id/action_todayFragment_to_welcomeFragment2"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonsFragment"
+        android:name="com.example.teacherassistant.LessonsFragment"
+        android:label="fragment_lessons"
+        tools:layout="@layout/fragment_lessons" >
+        <action
+            android:id="@+id/action_lessonsFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+        <action
+            android:id="@+id/action_lessonsFragment_to_lessonMarksFragment"
+            app:destination="@id/lessonMarksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonMarksFragment"
+        android:name="com.example.teacherassistant.LessonMarksFragment"
+        android:label="fragment_lesson_marks"
+        tools:layout="@layout/fragment_lesson_marks" >
+        <action
+            android:id="@+id/action_lessonMarksFragment_to_lessonsFragment"
+            app:destination="@id/lessonsFragment" />
+        <action
+            android:id="@+id/action_lessonMarksFragment_to_addLessonMarkFragment"
+            app:destination="@id/addLessonMarkFragment" />
+        <action
+            android:id="@+id/action_lessonMarksFragment_to_addLessonStudentFragment"
+            app:destination="@id/addLessonStudentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addLessonMarkFragment"
+        android:name="com.example.teacherassistant.AddLessonMarkFragment"
+        android:label="fragment_add_lesson_mark"
+        tools:layout="@layout/fragment_add_lesson_mark" >
+        <action
+            android:id="@+id/action_addLessonMarkFragment_to_lessonMarksFragment"
+            app:destination="@id/lessonMarksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addLessonStudentFragment"
+        android:name="com.example.teacherassistant.AddLessonStudentFragment"
+        android:label="fragment_add_lesson_student"
+        tools:layout="@layout/fragment_add_lesson_student" >
+        <action
+            android:id="@+id/action_addLessonStudentFragment_to_lessonMarksFragment"
+            app:destination="@id/lessonMarksFragment" />
+    </fragment>
+</navigation>

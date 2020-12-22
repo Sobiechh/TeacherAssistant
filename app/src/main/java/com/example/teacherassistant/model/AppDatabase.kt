@@ -20,7 +20,7 @@ import com.example.teacherassistant.model.SubjectGroup.SubjectGroupDao
             Subject::class,
             SubjectGroup::class
                    ],
-        version = 1,
+        version = 3,
         exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -30,9 +30,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun subjectGroupDao(): SubjectGroupDao
 
 
-    companion object{
+    companion object {
         @Volatile
-        private  var INSTANCE: AppDatabase? = null
+        private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase{
             val tempInstance = INSTANCE
@@ -44,7 +44,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "my_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }
