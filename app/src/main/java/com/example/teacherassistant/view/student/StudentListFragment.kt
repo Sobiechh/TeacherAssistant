@@ -5,11 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.R
+import com.example.teacherassistant.viewModel.StudentViewModel
 import kotlinx.android.synthetic.main.fragment_student_list.view.*
 
 class StudentListFragment : Fragment() {
+
+    private lateinit var mStudentViewModel: StudentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -17,6 +23,18 @@ class StudentListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_student_list, container, false)
+
+        //Recyclerview
+        val adapter = listAdapter()
+        val recyclerView = view.studentRecyclerview
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // StudentViewModel
+        mStudentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
+        mStudentViewModel.readAllData.observe(viewLifecycleOwner, Observer { student ->
+            adapter.setData(student)
+        })
 
         view.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_studentListFragment_to_studentAddFragment)
