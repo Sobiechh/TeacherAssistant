@@ -53,7 +53,7 @@ class StudentAddFragment : Fragment() {
     }
 
     private fun inputCheck(firstName: String, lastName: String): Boolean{
-        return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(firstName))
+        return !(TextUtils.isEmpty(firstName) && !(TextUtils.isEmpty(lastName)))
     }
 
 }

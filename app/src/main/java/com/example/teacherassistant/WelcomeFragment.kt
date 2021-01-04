@@ -21,9 +21,9 @@ class WelcomeFragment : Fragment() {
             findNavController().navigate(R.id.action_welcomeFragment_to_studentListFragment)
         }
 
-        view.navToLessons.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_lessonsFragment)
-        }
+//        view.navToLessons.setOnClickListener {
+//            findNavController().navigate(R.id.action_welcomeFragment_to_subjectListFragment)
+//        }
 
         view.navToToday.setOnClickListener {
             findNavController().navigate(R.id.action_welcomeFragment_to_todayFragment)

@@ -28,9 +28,8 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.teacherassistant.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_studentListFragment"
             app:destination="@id/studentListFragment" />
@@ -38,8 +37,8 @@
             android:id="@+id/action_welcomeFragment_to_todayFragment"
             app:destination="@id/todayFragment" />
         <action
-            android:id="@+id/action_welcomeFragment_to_lessonsFragment"
-            app:destination="@id/lessonsFragment" />
+            android:id="@+id/action_welcomeFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
     </fragment>
     <fragment
         android:id="@+id/todayFragment"
@@ -51,31 +50,19 @@
             app:destination="@id/welcomeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/lessonsFragment"
-        android:name="com.example.teacherassistant.LessonsFragment"
-        android:label="fragment_lessons"
-        tools:layout="@layout/fragment_lessons" >
-        <action
-            android:id="@+id/action_lessonsFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
-        <action
-            android:id="@+id/action_lessonsFragment_to_lessonMarksFragment"
-            app:destination="@id/lessonMarksFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/lessonMarksFragment"
         android:name="com.example.teacherassistant.LessonMarksFragment"
         android:label="fragment_lesson_marks"
         tools:layout="@layout/fragment_lesson_marks" >
-        <action
-            android:id="@+id/action_lessonMarksFragment_to_lessonsFragment"
-            app:destination="@id/lessonsFragment" />
         <action
             android:id="@+id/action_lessonMarksFragment_to_addLessonMarkFragment"
             app:destination="@id/addLessonMarkFragment" />
         <action
             android:id="@+id/action_lessonMarksFragment_to_addLessonStudentFragment"
             app:destination="@id/addLessonStudentFragment" />
+        <action
+            android:id="@+id/action_lessonMarksFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
     </fragment>
     <fragment
         android:id="@+id/addLessonMarkFragment"
@@ -94,5 +81,29 @@
         <action
             android:id="@+id/action_addLessonStudentFragment_to_lessonMarksFragment"
             app:destination="@id/lessonMarksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectAddFragment"
+        android:name="com.example.teacherassistant.SubjectAddFragment"
+        android:label="fragment_subject_add"
+        tools:layout="@layout/fragment_subject_add" >
+        <action
+            android:id="@+id/action_subjectAddFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectListFragment"
+        android:name="com.example.teacherassistant.SubjectListFragment"
+        android:label="fragment_subject_list"
+        tools:layout="@layout/fragment_subject_list" >
+        <action
+            android:id="@+id/action_subjectListFragment_to_subjectAddFragment"
+            app:destination="@id/subjectAddFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_lessonMarksFragment"
+            app:destination="@id/lessonMarksFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
     </fragment>
 </navigation>

@@ -18,7 +18,6 @@ class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.student_custom_row, parent, false))
     }
 
-
     override fun getItemCount(): Int {
         return studentList.size
     }
