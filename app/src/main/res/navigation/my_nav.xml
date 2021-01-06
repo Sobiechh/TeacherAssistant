@@ -26,20 +26,7 @@
             android:id="@+id/action_studentListFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/welcomeFragment"
-        android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome">
-        <action
-            android:id="@+id/action_welcomeFragment_to_studentListFragment"
-            app:destination="@id/studentListFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_todayFragment"
-            app:destination="@id/todayFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_subjectListFragment"
-            app:destination="@id/subjectListFragment" />
-    </fragment>
+
     <fragment
         android:id="@+id/todayFragment"
         android:name="com.example.teacherassistant.TodayFragment"
@@ -84,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/subjectAddFragment"
-        android:name="com.example.teacherassistant.SubjectAddFragment"
+        android:name="com.example.teacherassistant.view.subject.SubjectAddFragment"
         android:label="fragment_subject_add"
         tools:layout="@layout/fragment_subject_add" >
         <action
@@ -93,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/subjectListFragment"
-        android:name="com.example.teacherassistant.SubjectListFragment"
+        android:name="com.example.teacherassistant.view.subject.SubjectListFragment"
         android:label="fragment_subject_list"
         tools:layout="@layout/fragment_subject_list" >
         <action
@@ -105,5 +92,20 @@
         <action
             android:id="@+id/action_subjectListFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.teacherassistant.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_todayFragment"
+            app:destination="@id/todayFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
     </fragment>
 </navigation>

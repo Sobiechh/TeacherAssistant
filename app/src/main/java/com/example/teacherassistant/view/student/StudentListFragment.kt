@@ -36,6 +36,7 @@ class StudentListFragment : Fragment() {
             adapter.setData(student)
         })
 
+        //button add
         view.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_studentListFragment_to_studentAddFragment)
         }
