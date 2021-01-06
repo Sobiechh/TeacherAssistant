@@ -10,4 +10,8 @@ class StudentRepository(private val studentDao: StudentDao) {
         studentDao.addStudent(student)
     }
 
+    suspend fun updateStudent(student: Student){
+        studentDao.updateStudent(student)
+    }
+
 }

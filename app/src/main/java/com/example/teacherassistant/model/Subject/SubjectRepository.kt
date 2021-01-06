@@ -10,4 +10,7 @@ class SubjectRepository(private val subjectDao: SubjectDao) {
         subjectDao.addSubject(subject)
     }
 
+    suspend fun updateSubject(subject: Subject){
+        subjectDao.updateSubject(subject)
+    }
 }

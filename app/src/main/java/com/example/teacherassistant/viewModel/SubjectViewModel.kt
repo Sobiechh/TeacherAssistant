@@ -26,4 +26,10 @@ class SubjectViewModel(application: Application) : AndroidViewModel(application)
             repository.addSubject(subject)
         }
     }
+
+    fun updateSubject(subject: Subject){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateSubject(subject)
+        }
+    }
 }

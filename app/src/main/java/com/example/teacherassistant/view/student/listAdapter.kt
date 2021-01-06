@@ -3,6 +3,7 @@ package com.example.teacherassistant.view.student
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Student.Student
@@ -27,6 +28,13 @@ class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
         holder.itemView.id_txt.text = currentItem.id.toString()
         holder.itemView.firstName_txt.text = currentItem.name.toString()
         holder.itemView.lastName_txt.text = currentItem.surname.toString()
+
+        //edit button click
+        holder.itemView.btn_edit.setOnClickListener{
+            //navigate with args
+            val action = StudentListFragmentDirections.actionStudentListFragmentToStudentUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     fun setData(student: List<Student>){
