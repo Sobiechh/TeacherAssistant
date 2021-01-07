@@ -34,6 +34,13 @@ class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>()  {
             val action = SubjectListFragmentDirections.actionSubjectListFragmentToSubjectUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
+
+        // on subject click
+        holder.itemView.subjectRowLayout.setOnClickListener {
+            //navigate with args
+            val action = SubjectListFragmentDirections.actionSubjectListFragmentToSubjectMarksFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     fun setData(subject: List<Subject>){

@@ -45,17 +45,6 @@
             app:argType="com.example.teacherassistant.model.Student.Student" />
     </fragment>
 
-    <!--TODAY FRAGMENTS-->
-    <fragment
-        android:id="@+id/todayFragment"
-        android:name="com.example.teacherassistant.TodayFragment"
-        android:label="fragment_today"
-        tools:layout="@layout/fragment_today" >
-        <action
-            android:id="@+id/action_todayFragment_to_welcomeFragment2"
-            app:destination="@id/welcomeFragment" />
-    </fragment>
-
     <!--SUBJECT FRAGMENTS-->
     <fragment
         android:id="@+id/subjectAddFragment"
@@ -75,14 +64,14 @@
             android:id="@+id/action_subjectListFragment_to_subjectAddFragment"
             app:destination="@id/subjectAddFragment" />
         <action
-            android:id="@+id/action_subjectListFragment_to_lessonMarksFragment"
-            app:destination="@id/lessonMarksFragment" />
-        <action
             android:id="@+id/action_subjectListFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
         <action
             android:id="@+id/action_subjectListFragment_to_subjectUpdateFragment"
             app:destination="@id/subjectUpdateFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_subjectMarksFragment"
+            app:destination="@id/subjectMarksFragment" />
     </fragment>
     <fragment
         android:id="@+id/subjectUpdateFragment"
@@ -97,42 +86,15 @@
             app:argType="com.example.teacherassistant.model.Subject.Subject" />
     </fragment>
 
-    <!--LESSON MARKS FRAGMENTS-->
+    <!--TODAY FRAGMENTS-->
     <fragment
-        android:id="@+id/lessonMarksFragment"
-        android:name="com.example.teacherassistant.LessonMarksFragment"
-        android:label="fragment_lesson_marks"
-        tools:layout="@layout/fragment_lesson_marks" >
+        android:id="@+id/todayFragment"
+        android:name="com.example.teacherassistant.view.today.TodayFragment"
+        android:label="fragment_today"
+        tools:layout="@layout/fragment_today" >
         <action
-            android:id="@+id/action_lessonMarksFragment_to_addLessonMarkFragment"
-            app:destination="@id/addLessonMarkFragment" />
-        <action
-            android:id="@+id/action_lessonMarksFragment_to_addLessonStudentFragment"
-            app:destination="@id/addLessonStudentFragment" />
-        <action
-            android:id="@+id/action_lessonMarksFragment_to_subjectListFragment"
-            app:destination="@id/subjectListFragment" />
-        <argument
-            android:name="currentSubject"
-            app:argType="com.example.teacherassistant.model.Subject.Subject" />
-    </fragment>
-    <fragment
-        android:id="@+id/addLessonMarkFragment"
-        android:name="com.example.teacherassistant.AddLessonMarkFragment"
-        android:label="fragment_add_lesson_mark"
-        tools:layout="@layout/fragment_add_lesson_mark" >
-        <action
-            android:id="@+id/action_addLessonMarkFragment_to_lessonMarksFragment"
-            app:destination="@id/lessonMarksFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addLessonStudentFragment"
-        android:name="com.example.teacherassistant.AddLessonStudentFragment"
-        android:label="fragment_add_lesson_student"
-        tools:layout="@layout/fragment_add_lesson_student" >
-        <action
-            android:id="@+id/action_addLessonStudentFragment_to_lessonMarksFragment"
-            app:destination="@id/lessonMarksFragment" />
+            android:id="@+id/action_todayFragment_to_welcomeFragment2"
+            app:destination="@id/welcomeFragment" />
     </fragment>
 
     <!--WELCOME FRAGMENT-->
@@ -151,4 +113,19 @@
             android:id="@+id/action_welcomeFragment_to_subjectListFragment"
             app:destination="@id/subjectListFragment" />
     </fragment>
+
+    <!--SUBJECT MARKS FRAGMENTS-->
+    <fragment
+        android:id="@+id/subjectMarksFragment"
+        android:name="com.example.teacherassistant.view.subjectMark.SubjectMarksFragment"
+        android:label="fragment_subject_marks"
+        tools:layout="@layout/fragment_subject_marks" >
+        <action
+            android:id="@+id/action_subjectMarksFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
+        <argument
+            android:name="currentSubject"
+            app:argType="com.example.teacherassistant.model.Subject.Subject" />
+    </fragment>
+
 </navigation>
