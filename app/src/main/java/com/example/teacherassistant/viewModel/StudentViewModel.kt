@@ -19,6 +19,9 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
         val studentDao = AppDatabase.getDatabase(application).studentDao()
         repository = StudentRepository(studentDao)
         readAllData = repository.readAllData
+        viewModelScope.launch {
+            repository.mockData()
+        }
     }
 
     fun addStudent(student: Student) {

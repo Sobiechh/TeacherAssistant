@@ -19,6 +19,9 @@ class SubjectGroupViewModel(application: Application) : AndroidViewModel(applica
         val subjectGroupDao = AppDatabase.getDatabase(application).subjectGroupDao()
         repository = SubjectGroupRepository(subjectGroupDao)
         readAllData = repository.readAllData
+        viewModelScope.launch {
+            repository.mockData()
+        }
     }
 
     fun addSubjectGroup(subjectGroup: SubjectGroup) {

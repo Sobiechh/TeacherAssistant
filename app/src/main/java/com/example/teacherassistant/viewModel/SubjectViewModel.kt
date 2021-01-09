@@ -19,6 +19,9 @@ class SubjectViewModel(application: Application) : AndroidViewModel(application)
         val subjectDao = AppDatabase.getDatabase(application).subjectDao()
         repository = SubjectRepository(subjectDao)
         readAllData = repository.readAllData
+        viewModelScope.launch {
+            repository.mockData()
+        }
     }
 
     fun addSubject(subject: Subject) {

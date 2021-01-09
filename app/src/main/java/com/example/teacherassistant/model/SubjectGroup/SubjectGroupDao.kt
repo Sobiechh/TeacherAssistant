@@ -15,4 +15,6 @@ interface SubjectGroupDao {
     @Query("SELECT * FROM subjectGroup_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<SubjectGroup>>
 
+    @Query("DELETE FROM subject_table")
+    suspend fun clearTable()
 }

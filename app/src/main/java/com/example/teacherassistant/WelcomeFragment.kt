@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.teacherassistant.model.Student.StudentDao
 import kotlinx.android.synthetic.main.fragment_welcome.view.*
 
 class WelcomeFragment : Fragment(R.layout.fragment_welcome)
 {
+    private lateinit var studentDao: StudentDao
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
