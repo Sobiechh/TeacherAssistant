@@ -21,9 +21,9 @@ class SubjectRepository(private val subjectDao: SubjectDao) {
         {
             subjectDao.clearTable()
 
-            subjectDao.addSubject(Subject(id = 1, name = "Kotlin"))
-            subjectDao.addSubject(Subject(id = 2, name = "Python"))
-            subjectDao.addSubject(Subject(id = 3, name = "Math"))
+            subjectDao.addSubject(Subject(idSubject = 1, nameSubject = "Kotlin"))
+            subjectDao.addSubject(Subject(idSubject = 2, nameSubject = "Python"))
+            subjectDao.addSubject(Subject(idSubject = 3, nameSubject = "Math"))
         }
     }
 }

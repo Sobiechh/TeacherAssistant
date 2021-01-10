@@ -21,15 +21,15 @@ class StudentRepository(private val studentDao: StudentDao) {
         {
             studentDao.clearTable()
 
-            studentDao.addStudent(Student(id = 1, name = "Piotr",    surname = "Sakwa"))
-            studentDao.addStudent(Student(id = 2, name = "Jan",      surname = "Kot"))
-            studentDao.addStudent(Student(id = 3, name = "Kamila",   surname = "Kowalska"))
-            studentDao.addStudent(Student(id = 4, name = "Karolina", surname = "Gara"))
-            studentDao.addStudent(Student(id = 5, name = "Karol",    surname = "Jotko"))
-            studentDao.addStudent(Student(id = 6, name = "Filip",    surname = "Rataj"))
-            studentDao.addStudent(Student(id = 7, name = "Oskar",    surname = "Trela"))
-            studentDao.addStudent(Student(id = 8, name = "Anna",     surname = "Kossak"))
-            studentDao.addStudent(Student(id = 9, name = "Aneta",    surname = "Robak"))
+            studentDao.addStudent(Student(idStudent = 1, nameStudent = "Piotr",    surnameStudent = "Sakwa"))
+            studentDao.addStudent(Student(idStudent = 2, nameStudent = "Jan",      surnameStudent = "Kot"))
+            studentDao.addStudent(Student(idStudent = 3, nameStudent = "Kamila",   surnameStudent = "Kowalska"))
+            studentDao.addStudent(Student(idStudent = 4, nameStudent = "Karolina", surnameStudent = "Gara"))
+            studentDao.addStudent(Student(idStudent = 5, nameStudent = "Karol",    surnameStudent = "Jotko"))
+            studentDao.addStudent(Student(idStudent = 6, nameStudent = "Filip",    surnameStudent = "Rataj"))
+            studentDao.addStudent(Student(idStudent = 7, nameStudent = "Oskar",    surnameStudent = "Trela"))
+            studentDao.addStudent(Student(idStudent = 8, nameStudent = "Anna",     surnameStudent = "Kossak"))
+            studentDao.addStudent(Student(idStudent = 9, nameStudent = "Aneta",    surnameStudent = "Robak"))
         }
     }
 }

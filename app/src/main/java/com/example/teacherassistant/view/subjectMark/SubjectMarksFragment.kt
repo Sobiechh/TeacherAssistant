@@ -25,7 +25,7 @@ class SubjectMarksFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_subject_marks, container, false)
 
         // Subject name
-        view.subjectName.setText(args.currentSubject.name)
+        view.subjectName.setText(args.currentSubject.nameSubject)
 
         //Recyclerview
         val adapter = listAdapter()
@@ -35,8 +35,7 @@ class SubjectMarksFragment : Fragment() {
 
         // MarksMarkViewModel
         mMarkViewModel = ViewModelProvider(this).get(MarkViewModel::class.java)
-        mMarkViewModel.readAllData(args.currentSubject.id.toInt()).observe(viewLifecycleOwner, Observer { mark ->
-            
+        mMarkViewModel.readAllData().observe(viewLifecycleOwner, Observer { mark ->
             adapter.setData(mark)
         })
 

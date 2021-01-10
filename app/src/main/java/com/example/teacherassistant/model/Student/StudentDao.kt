@@ -12,7 +12,7 @@ interface StudentDao {
     @Update
     suspend fun updateStudent(student: Student)
 
-    @Query("SELECT * FROM student_table ORDER BY id ASC")
+    @Query("SELECT * FROM student_table ORDER BY idStudent ASC")
     fun readAllData(): LiveData<List<Student>>
 
     @Query("DELETE FROM student_table")

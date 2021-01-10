@@ -42,6 +42,8 @@ class SubjectListFragment : Fragment() {
             findNavController().navigate(R.id.action_subjectListFragment_to_subjectAddFragment)
         }
 
+
+
         return view
     }
 }

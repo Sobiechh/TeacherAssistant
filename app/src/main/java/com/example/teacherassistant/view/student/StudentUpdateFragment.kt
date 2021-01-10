@@ -29,8 +29,8 @@ class StudentUpdateFragment : Fragment() {
 
         mStudentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
 
-        view.updateFirstName_et.setText(args.currentStudent.name)
-        view.updateLastName_et.setText(args.currentStudent.surname)
+        view.updateFirstName_et.setText(args.currentStudent.nameStudent)
+        view.updateLastName_et.setText(args.currentStudent.surnameStudent)
 
         view.update_btn.setOnClickListener {
             updateItem()
@@ -45,7 +45,7 @@ class StudentUpdateFragment : Fragment() {
 
         if(inputCheck(firstName, lastName)){
             //Create Student Object
-            val updatedStudent = Student(args.currentStudent.id, firstName, lastName)
+            val updatedStudent = Student(args.currentStudent.idStudent, firstName, lastName)
             // Update Current Student
             mStudentViewModel.updateStudent(updatedStudent)
             Toast.makeText(requireContext(), "Updated successfully!", Toast.LENGTH_SHORT).show()

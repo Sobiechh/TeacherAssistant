@@ -25,9 +25,9 @@ class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = studentList[position]
-        holder.itemView.id_txt.text = currentItem.id.toString()
-        holder.itemView.firstName_txt.text = currentItem.name.toString()
-        holder.itemView.lastName_txt.text = currentItem.surname.toString()
+        holder.itemView.id_txt.text = currentItem.idStudent.toString()
+        holder.itemView.firstName_txt.text = currentItem.nameStudent.toString()
+        holder.itemView.lastName_txt.text = currentItem.surnameStudent.toString()
 
         //edit button click
         holder.itemView.btn_edit.setOnClickListener{

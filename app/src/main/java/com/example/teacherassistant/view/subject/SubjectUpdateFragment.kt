@@ -30,7 +30,7 @@ class SubjectUpdateFragment : Fragment() {
         mSubjectViewModel = ViewModelProvider(this).get(SubjectViewModel::class.java)
 
         // Args
-        view.updateName_et.setText(args.currentSubject.name)
+        view.updateName_et.setText(args.currentSubject.nameSubject)
 
         view.update_btn.setOnClickListener {
             updateItem()
@@ -44,7 +44,7 @@ class SubjectUpdateFragment : Fragment() {
 
         if(inputCheck(name)){
             // Create Subject Object
-            val updatedSubject = Subject(args.currentSubject.id, name)
+            val updatedSubject = Subject(args.currentSubject.idSubject, name)
             // Update Current Subject
             mSubjectViewModel.updateSubject(updatedSubject)
             Toast.makeText(requireContext(), "Updated successfully!", Toast.LENGTH_SHORT).show()

@@ -9,6 +9,7 @@ import com.example.teacherassistant.model.Mark.Mark
 import com.example.teacherassistant.model.Mark.MarkRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 class MarkViewModel(application: Application) : AndroidViewModel(application) {
 
 //    abstract var readAllData: LiveData<List<Mark>>
@@ -29,9 +30,9 @@ class MarkViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    fun readAllData(id: Int): LiveData<List<Mark>> {
+    fun readAllData(): LiveData<List<Mark>> {
 //        viewModelScope.launch(Dispatchers.IO) {
-            return repository.readAllData(id)
+            return repository.readAllData()
 //        }
     }
 }

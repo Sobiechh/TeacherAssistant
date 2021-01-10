@@ -24,10 +24,11 @@ class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: listAdapter.MyViewHolder, position: Int) {
         val currentItem = subjectMarksList[position]
-        holder.itemView.firstName_txt.text = currentItem.studentID.toString()
-        holder.itemView.lastName_txt.text = currentItem.studentID.toString()
+        holder.itemView.firstName_txt.text = currentItem.student.nameStudent.toString()
+        holder.itemView.lastName_txt.text = currentItem.student.surnameStudent.toString()
         holder.itemView.mark_txt.text = currentItem.grade.toString()
         holder.itemView.date_txt.text = currentItem.date.toString()
+        holder.itemView.description_txt.text = currentItem.note.toString()
 
     }
 

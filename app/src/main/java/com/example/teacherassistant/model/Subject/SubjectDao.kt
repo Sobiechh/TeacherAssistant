@@ -12,7 +12,7 @@ interface SubjectDao {
     @Update
     suspend fun updateSubject(subject: Subject)
 
-    @Query("SELECT * FROM subject_table ORDER BY id ASC")
+    @Query("SELECT * FROM subject_table ORDER BY idSubject ASC")
     fun readAllData(): LiveData<List<Subject>>
 
     @Query("DELETE FROM subject_table")
