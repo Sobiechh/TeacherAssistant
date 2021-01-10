@@ -5,29 +5,36 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teacherassistant.R
-import com.example.teacherassistant.model.SubjectGroup.SubjectGroup
-import com.example.teacherassistant.view.subject.listAdapter
+import com.example.teacherassistant.model.Mark.Mark
 import kotlinx.android.synthetic.main.subject_marks_custom_row.view.*
 
 class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
 
-    private var subjectMarksList = emptyList<SubjectGroup>()
+    private var subjectMarksList = emptyList<Mark>()
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): listAdapter.MyViewHolder {
-        return listAdapter.MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.subject_marks_custom_row, parent, false))
+        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.subject_marks_custom_row, parent, false))
     }
 
     override fun getItemCount(): Int {
-        subjectMarksList.size
+        return subjectMarksList.size
     }
 
     override fun onBindViewHolder(holder: listAdapter.MyViewHolder, position: Int) {
         val currentItem = subjectMarksList[position]
         holder.itemView.firstName_txt.text = currentItem.studentID.toString()
+        holder.itemView.lastName_txt.text = currentItem.studentID.toString()
+        holder.itemView.mark_txt.text = currentItem.grade.toString()
+        holder.itemView.date_txt.text = currentItem.date.toString()
 
     }
 
+    fun setData(mark:  List<Mark>){
 
+
+        this.subjectMarksList = mark
+        notifyDataSetChanged()
+    }
 }

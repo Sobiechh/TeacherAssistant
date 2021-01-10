@@ -34,6 +34,7 @@ class SubjectListFragment : Fragment() {
         mSubjectViewModel = ViewModelProvider(this).get(SubjectViewModel::class.java)
         mSubjectViewModel.readAllData.observe(viewLifecycleOwner, Observer { subject ->
             adapter.setData(subject)
+
         })
 
         //button add

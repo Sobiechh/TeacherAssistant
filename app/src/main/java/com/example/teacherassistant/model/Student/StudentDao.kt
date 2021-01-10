@@ -17,4 +17,6 @@ interface StudentDao {
 
     @Query("DELETE FROM student_table")
     suspend fun clearTable()
+
+
 }
