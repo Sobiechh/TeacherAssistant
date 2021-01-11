@@ -23,6 +23,13 @@ class MarkRepository(private val markDao: MarkDao) {
             markDao.clearTable()
 
             markDao.addMark(Mark(1, Student(1,"Jan","Kal"), Subject(2,"Python"), "note1",4.5,"13-06-2020"))
+            markDao.addMark(Mark(2, Student(1,"Jan","Kal"), Subject(2,"Python"), "note1",5.0,"30-05-2020"))
+            markDao.addMark(Mark(3, Student(1,"Jan","Kal"), Subject(2,"Python"), "note1",2.5,"11-01-2020"))
+            markDao.addMark(Mark(4, Student(1,"Jan","Kal"), Subject(2,"Python"), "note1",2.5,"11-01-2020"))
+            markDao.addMark(Mark(5, Student(1,"Jan","Kal"), Subject(2,"Python"), "note1",2.5,"11-01-2020"))
+            markDao.addMark(Mark(6, Student(1,"Jan","Kal"), Subject(2,"Python"), "note1",2.5,"11-01-2020"))
+            markDao.addMark(Mark(7, Student(1,"Jan","Kal"), Subject(2,"Python"), "note1",1.0,"11-01-2020"))
+
 //            markDao.addMark(Mark(idMark = 2 , note="Note2", grade = 3.5, date="23-06-2021"))
 //            markDao.addMark(Mark(idMark = 3 , note="Note3", grade = 5.0, date="24-06-2021"))
 //            markDao.addMark(Mark(idMark = 4 , note="Note4", grade = 5.0, date="11-06-2021"))

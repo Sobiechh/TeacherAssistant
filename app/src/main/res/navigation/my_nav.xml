@@ -126,6 +126,21 @@
         <argument
             android:name="currentSubject"
             app:argType="com.example.teacherassistant.model.Subject.Subject" />
+        <action
+            android:id="@+id/action_subjectMarksFragment_to_addMarkFragment"
+            app:destination="@id/addMarkFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMarkFragment"
+        android:name="com.example.teacherassistant.view.subjectMark.AddMarkFragment"
+        android:label="fragment_add_mark"
+        tools:layout="@layout/fragment_add_mark" >
+        <action
+            android:id="@+id/action_addMarkFragment_to_subjectMarksFragment"
+            app:destination="@id/subjectMarksFragment" />
+        <argument
+            android:name="currentSubject"
+            app:argType="com.example.teacherassistant.model.Subject.Subject" />
     </fragment>
 
 </navigation>

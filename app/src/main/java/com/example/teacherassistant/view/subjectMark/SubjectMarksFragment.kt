@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.R
@@ -38,6 +39,12 @@ class SubjectMarksFragment : Fragment() {
         mMarkViewModel.readAllData(args.currentSubject.idSubject.toInt()).observe(viewLifecycleOwner, Observer { mark ->
             adapter.setData(mark)
         })
+
+        // button add mark
+        view.btn_addMark.setOnClickListener {
+            val action = SubjectMarksFragmentDirections.actionSubjectMarksFragmentToAddMarkFragment(currentSubject = args.currentSubject)
+            findNavController().navigate(action)
+        }
 
         return view
     }

@@ -34,15 +34,12 @@ class SubjectListFragment : Fragment() {
         mSubjectViewModel = ViewModelProvider(this).get(SubjectViewModel::class.java)
         mSubjectViewModel.readAllData.observe(viewLifecycleOwner, Observer { subject ->
             adapter.setData(subject)
-
         })
 
         //button add
         view.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_subjectListFragment_to_subjectAddFragment)
         }
-
-
 
         return view
     }
