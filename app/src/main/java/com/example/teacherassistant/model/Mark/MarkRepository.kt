@@ -7,7 +7,7 @@ import kotlinx.coroutines.withContext
 
 class MarkRepository(private val markDao: MarkDao) {
 
-    fun readAllData() = markDao.readAllData()
+    fun readAllData(id:Int) = markDao.readAllData(id)
 
     suspend fun addMark(mark: Mark){
         markDao.addMark(mark)
@@ -22,7 +22,7 @@ class MarkRepository(private val markDao: MarkDao) {
         {
             markDao.clearTable()
 
-            markDao.addMark(Mark(1, Student(1,"Jan","Kal"), Subject(2,""), "note1",4.5,"13-06-2020"))
+            markDao.addMark(Mark(1, Student(1,"Jan","Kal"), Subject(2,"Python"), "note1",4.5,"13-06-2020"))
 //            markDao.addMark(Mark(idMark = 2 , note="Note2", grade = 3.5, date="23-06-2021"))
 //            markDao.addMark(Mark(idMark = 3 , note="Note3", grade = 5.0, date="24-06-2021"))
 //            markDao.addMark(Mark(idMark = 4 , note="Note4", grade = 5.0, date="11-06-2021"))

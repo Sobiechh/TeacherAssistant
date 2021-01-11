@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 
 class MarkViewModel(application: Application) : AndroidViewModel(application) {
 
-//    abstract var readAllData: LiveData<List<Mark>>
     private val repository: MarkRepository
 
     init {
@@ -29,10 +28,7 @@ class MarkViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-
-    fun readAllData(): LiveData<List<Mark>> {
-//        viewModelScope.launch(Dispatchers.IO) {
-            return repository.readAllData()
-//        }
+    fun readAllData(idSubject: Int): LiveData<List<Mark>> {
+            return repository.readAllData(idSubject)
     }
 }

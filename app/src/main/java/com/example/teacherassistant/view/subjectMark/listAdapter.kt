@@ -29,12 +29,9 @@ class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
         holder.itemView.mark_txt.text = currentItem.grade.toString()
         holder.itemView.date_txt.text = currentItem.date.toString()
         holder.itemView.description_txt.text = currentItem.note.toString()
-
     }
 
     fun setData(mark:  List<Mark>){
-
-
         this.subjectMarksList = mark
         notifyDataSetChanged()
     }

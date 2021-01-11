@@ -8,7 +8,6 @@ import com.example.teacherassistant.model.Subject.Subject
 
 @Entity(
     tableName = "mark_table"
-
 )
 data class Mark (
     @PrimaryKey(autoGenerate = true)

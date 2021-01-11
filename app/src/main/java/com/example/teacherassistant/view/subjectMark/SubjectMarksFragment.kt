@@ -35,7 +35,7 @@ class SubjectMarksFragment : Fragment() {
 
         // MarksMarkViewModel
         mMarkViewModel = ViewModelProvider(this).get(MarkViewModel::class.java)
-        mMarkViewModel.readAllData().observe(viewLifecycleOwner, Observer { mark ->
+        mMarkViewModel.readAllData(args.currentSubject.idSubject.toInt()).observe(viewLifecycleOwner, Observer { mark ->
             adapter.setData(mark)
         })
 
@@ -43,4 +43,3 @@ class SubjectMarksFragment : Fragment() {
     }
 
 }
-
