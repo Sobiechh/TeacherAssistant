@@ -12,13 +12,11 @@ import kotlinx.coroutines.launch
 
 class SubjectGroupViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val readAllData: LiveData<List<SubjectGroup>>
     private val repository: SubjectGroupRepository
 
     init {
         val subjectGroupDao = AppDatabase.getDatabase(application).subjectGroupDao()
         repository = SubjectGroupRepository(subjectGroupDao)
-        readAllData = repository.readAllData
         viewModelScope.launch {
             repository.mockData()
         }
@@ -28,5 +26,9 @@ class SubjectGroupViewModel(application: Application) : AndroidViewModel(applica
         viewModelScope.launch(Dispatchers.IO) {
             repository.addSubjectGroup(subjectGroup)
         }
+    }
+
+    fun getSubjectStudents(idSubject: Int): LiveData<List<SubjectGroup>> {
+        return repository.getSubjectStudents(idSubject)
     }
 }

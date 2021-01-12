@@ -40,9 +40,9 @@ class SubjectMarksFragment : Fragment() {
             adapter.setData(mark)
         })
 
-        // button add mark
-        view.btn_addMark.setOnClickListener {
-            val action = SubjectMarksFragmentDirections.actionSubjectMarksFragmentToAddMarkFragment(currentSubject = args.currentSubject)
+        // button list Students
+        view.btn_listStudents.setOnClickListener {
+            val action = SubjectMarksFragmentDirections.actionSubjectMarksFragmentToStudentsInSubjectFragment(currentSubject = args.currentSubject)
             findNavController().navigate(action)
         }
 

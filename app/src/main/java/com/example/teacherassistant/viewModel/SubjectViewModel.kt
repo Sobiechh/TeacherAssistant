@@ -35,4 +35,6 @@ class SubjectViewModel(application: Application) : AndroidViewModel(application)
             repository.updateSubject(subject)
         }
     }
+
+
 }

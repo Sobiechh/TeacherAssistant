@@ -127,16 +127,17 @@
             android:name="currentSubject"
             app:argType="com.example.teacherassistant.model.Subject.Subject" />
         <action
-            android:id="@+id/action_subjectMarksFragment_to_addMarkFragment"
-            app:destination="@id/addMarkFragment" />
+            android:id="@+id/action_subjectMarksFragment_to_studentsInSubjectFragment"
+            app:destination="@id/studentsInSubjectFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/addMarkFragment"
-        android:name="com.example.teacherassistant.view.subjectMark.AddMarkFragment"
-        android:label="fragment_add_mark"
-        tools:layout="@layout/fragment_add_mark" >
+        android:id="@+id/studentsInSubjectFragment"
+        android:name="com.example.teacherassistant.view.studentInSubject.StudentsInSubjectFragment"
+        android:label="fragment_students_in_subject"
+        tools:layout="@layout/fragment_students_in_subject" >
         <action
-            android:id="@+id/action_addMarkFragment_to_subjectMarksFragment"
+            android:id="@+id/action_studentsInSubjectFragment_to_subjectMarksFragment"
             app:destination="@id/subjectMarksFragment" />
         <argument
             android:name="currentSubject"
