@@ -36,13 +36,13 @@ class SubjectMarksFragment : Fragment() {
 
         // MarksMarkViewModel
         mMarkViewModel = ViewModelProvider(this).get(MarkViewModel::class.java)
-        mMarkViewModel.readAllData(args.currentSubject.idSubject.toInt()).observe(viewLifecycleOwner, Observer { mark ->
+        mMarkViewModel.readSubjectData(args.currentSubject.idSubject.toInt()).observe(viewLifecycleOwner, Observer { mark ->
             adapter.setData(mark)
         })
 
         // button list Students
         view.btn_listStudents.setOnClickListener {
-            val action = SubjectMarksFragmentDirections.actionSubjectMarksFragmentToStudentsInSubjectFragment(currentSubject = args.currentSubject)
+            val action = SubjectMarksFragmentDirections.actionSubjectMarksFragmentToStudentsInSubjectFragment(args.currentSubject)
             findNavController().navigate(action)
         }
 

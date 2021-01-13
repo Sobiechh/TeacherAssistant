@@ -20,7 +20,7 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
         repository = StudentRepository(studentDao)
         readAllData = repository.readAllData
         viewModelScope.launch {
-            repository.mockData()
+//            repository.mockData()
         }
     }
 

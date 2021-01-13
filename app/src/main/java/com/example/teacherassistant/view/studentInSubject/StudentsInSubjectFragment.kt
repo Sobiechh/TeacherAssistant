@@ -10,14 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.R
-import com.example.teacherassistant.view.subjectMark.SubjectMarksFragmentArgs
 import com.example.teacherassistant.viewModel.SubjectGroupViewModel
 import kotlinx.android.synthetic.main.fragment_students_in_subject.view.*
-import kotlinx.android.synthetic.main.fragment_subject_marks.view.subjectName
 
 class StudentsInSubjectFragment : Fragment() {
 
-    private val args by navArgs<SubjectMarksFragmentArgs>()
+    private val args by navArgs<StudentsInSubjectFragmentArgs>()
 
     private lateinit var mSubjectGroupViewModel: SubjectGroupViewModel
 
@@ -27,7 +25,7 @@ class StudentsInSubjectFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_students_in_subject, container, false)
 
         // Subject name
-        view.subjectName.setText(args.currentSubject.nameSubject)
+        view.subjectName.setText(args.currentSubject.nameSubject.toString())
 
         // Recyclerview
         val adapter = listAdapter()

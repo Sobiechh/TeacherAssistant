@@ -10,7 +10,7 @@ interface MarkDao {
     suspend fun addMark(mark: Mark)
 
     @Query("SELECT * FROM mark_table WHERE idSubject = :idSubject")
-    fun readAllData(idSubject: Int): LiveData<List<Mark>>
+    fun readSubjectData(idSubject: Int): LiveData<List<Mark>>
 
     @Update
     suspend fun updateMark(mark: Mark)

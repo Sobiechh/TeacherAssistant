@@ -141,7 +141,41 @@
             app:destination="@id/subjectMarksFragment" />
         <argument
             android:name="currentSubject"
-            app:argType="com.example.teacherassistant.model.Subject.Subject" />
+            app:argType="com.example.teacherassistant.model.Subject.Subject"
+            />
+        <action
+            android:id="@+id/action_studentsInSubjectFragment_to_addMarkFragment"
+            app:destination="@id/addMarkFragment" />
+        <action
+            android:id="@+id/action_studentsInSubjectFragment_to_addStudentSubject"
+            app:destination="@id/addStudentSubject" />
+    </fragment>
+
+    <!--STUDENT IN SUBJECTS FRAGMENTS-->
+    <fragment
+        android:id="@+id/addMarkFragment"
+        android:name="com.example.teacherassistant.view.studentInSubject.AddMarkFragment"
+        android:label="fragment_add_mark"
+        tools:layout="@layout/fragment_add_mark" >
+        <action
+            android:id="@+id/action_addMarkFragment_to_studentsInSubjectFragment"
+            app:destination="@id/studentsInSubjectFragment" />
+        <argument
+            android:name="currentSubjectStudent"
+            app:argType="com.example.teacherassistant.model.SubjectGroup.SubjectGroup"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/addStudentSubject"
+        android:name="com.example.teacherassistant.AddStudentSubject"
+        android:label="fragment_add_student_subject"
+        tools:layout="@layout/fragment_add_student_subject" >
+        <action
+            android:id="@+id/action_addStudentSubject_to_studentsInSubjectFragment"
+            app:destination="@id/studentsInSubjectFragment" />
+        <argument
+            android:name="currentSubjectStudent"
+            app:argType="com.example.teacherassistant.model.SubjectGroup.SubjectGroup" />
     </fragment>
 
 </navigation>
