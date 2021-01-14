@@ -11,13 +11,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Student.Student
+import com.example.teacherassistant.model.Subject.Subject
+import com.example.teacherassistant.model.SubjectGroup.SubjectGroup
 import com.example.teacherassistant.viewModel.StudentViewModel
+import com.example.teacherassistant.viewModel.SubjectGroupViewModel
 import kotlinx.android.synthetic.main.fragment_student_add.*
 import kotlinx.android.synthetic.main.fragment_student_add.view.*
 
 class StudentAddFragment : Fragment() {
 
     private lateinit var mStudentViewModel: StudentViewModel
+    private lateinit var  mSubjectGroupViewModel: SubjectGroupViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,9 +45,17 @@ class StudentAddFragment : Fragment() {
 
         if(inputCheck(firstName, lastName)){
             val student = Student(0, firstName, lastName)
-            //Add to database
+            // Add to database
             mStudentViewModel.addStudent(student)
             Toast.makeText(requireContext(), "Succesfully added!", Toast.LENGTH_LONG).show()
+
+            // SubjectGroupViewModel
+            mSubjectGroupViewModel = ViewModelProvider(this).get(SubjectGroupViewModel::class.java)
+
+            // Add to subjectGroup
+            val subjectGroup = SubjectGroup(0, student, Subject(0, "a"))
+            mSubjectGroupViewModel.addSubjectGroup(subjectGroup)
+
             //Navigate Back
             findNavController().navigate(R.id.action_studentAddFragment_to_studentListFragment)
         }

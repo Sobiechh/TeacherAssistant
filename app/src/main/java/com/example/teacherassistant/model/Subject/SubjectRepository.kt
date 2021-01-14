@@ -19,11 +19,11 @@ class SubjectRepository(private val subjectDao: SubjectDao) {
     suspend fun mockData() {
         withContext(Dispatchers.IO)
         {
-            subjectDao.clearTable()
+//            subjectDao.clearTable()
 
-            subjectDao.addSubject(Subject(idSubject = 1, nameSubject = "Kotlin"))
-            subjectDao.addSubject(Subject(idSubject = 2, nameSubject = "Python"))
-            subjectDao.addSubject(Subject(idSubject = 3, nameSubject = "Math"))
+//            subjectDao.addSubject(Subject(idSubject = 1, nameSubject = "Kotlin"))
+//            subjectDao.addSubject(Subject(idSubject = 2, nameSubject = "Python"))
+//            subjectDao.addSubject(Subject(idSubject = 3, nameSubject = "Math"))
         }
     }
 }
