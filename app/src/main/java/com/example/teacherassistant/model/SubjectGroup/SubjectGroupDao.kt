@@ -18,6 +18,9 @@ interface SubjectGroupDao {
     @Query("SELECT * FROM subjectGroup_table WHERE idSubject = :idSubject")
     fun getSubjectStudents(idSubject: Int): LiveData<List<SubjectGroup>>
 
+    @Query("SELECT * FROM subjectGroup_table WHERE idSubject != :idSubject AND idStudent NOT IN (SELECT idStudent FROM subjectGroup_table WHERE idSubject = :idSubject)")
+    fun getStudentsNotInSubject(idSubject: Int): LiveData<List<SubjectGroup>>
+
     @Query("DELETE FROM subject_table")
     suspend fun clearTable()
 }

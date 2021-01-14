@@ -167,15 +167,18 @@
     </fragment>
     <fragment
         android:id="@+id/addStudentSubject"
-        android:name="com.example.teacherassistant.AddStudentSubject"
+        android:name="com.example.teacherassistant.view.studentInSubject.AddStudentSubjectFragment"
         android:label="fragment_add_student_subject"
         tools:layout="@layout/fragment_add_student_subject" >
         <action
             android:id="@+id/action_addStudentSubject_to_studentsInSubjectFragment"
             app:destination="@id/studentsInSubjectFragment" />
+        <action
+            android:id="@+id/action_addStudentSubject_self"
+            app:destination="@id/addStudentSubject" />
         <argument
-            android:name="currentSubjectStudent"
-            app:argType="com.example.teacherassistant.model.SubjectGroup.SubjectGroup" />
+            android:name="currentSubject"
+            app:argType="com.example.teacherassistant.model.Subject.Subject" />
     </fragment>
 
 </navigation>

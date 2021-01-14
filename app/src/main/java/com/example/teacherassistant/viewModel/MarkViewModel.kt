@@ -18,7 +18,7 @@ class MarkViewModel(application: Application) : AndroidViewModel(application) {
         val markDao = AppDatabase.getDatabase(application).markDao()
         repository = MarkRepository(markDao)
         viewModelScope.launch {
-//            repository.mockData()
+            repository.mockData()
         }
     }
 

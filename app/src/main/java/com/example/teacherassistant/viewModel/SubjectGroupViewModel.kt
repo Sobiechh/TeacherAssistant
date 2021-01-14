@@ -14,11 +14,12 @@ class SubjectGroupViewModel(application: Application) : AndroidViewModel(applica
 
     private val repository: SubjectGroupRepository
 
+
     init {
         val subjectGroupDao = AppDatabase.getDatabase(application).subjectGroupDao()
         repository = SubjectGroupRepository(subjectGroupDao)
         viewModelScope.launch {
-//            repository.mockData()
+            repository.mockData()
         }
     }
 
@@ -30,5 +31,9 @@ class SubjectGroupViewModel(application: Application) : AndroidViewModel(applica
 
     fun getSubjectStudents(idSubject: Int): LiveData<List<SubjectGroup>> {
         return repository.getSubjectStudents(idSubject)
+    }
+
+    fun getStudentsNotInSubject(idSubject: Int): LiveData<List<SubjectGroup>> {
+        return repository.getStudentsNotInSubject(idSubject)
     }
 }
