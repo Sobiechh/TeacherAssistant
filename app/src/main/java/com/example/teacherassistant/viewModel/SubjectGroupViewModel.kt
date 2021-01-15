@@ -19,13 +19,25 @@ class SubjectGroupViewModel(application: Application) : AndroidViewModel(applica
         val subjectGroupDao = AppDatabase.getDatabase(application).subjectGroupDao()
         repository = SubjectGroupRepository(subjectGroupDao)
         viewModelScope.launch {
-            repository.mockData()
+//            repository.mockData()
         }
     }
 
     fun addSubjectGroup(subjectGroup: SubjectGroup) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addSubjectGroup(subjectGroup)
+        }
+    }
+
+    fun deleteEmptyStudentGroup(nameStudent: String, surnameStudent: String) {
+        viewModelScope.launch(Dispatchers.IO){
+            repository.deleteEmptyStudentGroup(nameStudent, surnameStudent)
+        }
+    }
+
+    fun updateStudentNameInStudentGrup(oldNameStudent: String, oldSurnameStudent: String, newNameStudent: String, newSurnameStudent:String) {
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateStudentNameInStudentGrup(oldNameStudent, oldSurnameStudent, newNameStudent, newSurnameStudent)
         }
     }
 

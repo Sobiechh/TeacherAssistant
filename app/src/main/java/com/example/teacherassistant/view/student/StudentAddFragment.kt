@@ -30,7 +30,11 @@ class StudentAddFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_student_add, container, false)
 
+        // StudentViewModel
         mStudentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
+
+        // SubjectGroupViewModel
+        mSubjectGroupViewModel = ViewModelProvider(this).get(SubjectGroupViewModel::class.java)
 
         view.add_button.setOnClickListener {
             insertDataToDatabase()
@@ -49,11 +53,8 @@ class StudentAddFragment : Fragment() {
             mStudentViewModel.addStudent(student)
             Toast.makeText(requireContext(), "Succesfully added!", Toast.LENGTH_LONG).show()
 
-            // SubjectGroupViewModel
-            mSubjectGroupViewModel = ViewModelProvider(this).get(SubjectGroupViewModel::class.java)
-
             // Add to subjectGroup
-            val subjectGroup = SubjectGroup(0, student, Subject(0, "a"))
+            val subjectGroup = SubjectGroup(0, student, Subject(1000, "A"))
             mSubjectGroupViewModel.addSubjectGroup(subjectGroup)
 
             //Navigate Back

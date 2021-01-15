@@ -18,7 +18,7 @@ class MarkViewModel(application: Application) : AndroidViewModel(application) {
         val markDao = AppDatabase.getDatabase(application).markDao()
         repository = MarkRepository(markDao)
         viewModelScope.launch {
-            repository.mockData()
+//            repository.mockData()
         }
     }
 
@@ -30,5 +30,9 @@ class MarkViewModel(application: Application) : AndroidViewModel(application) {
 
     fun readSubjectData(idSubject: Int): LiveData<List<Mark>> {
             return repository.readSubjectData(idSubject)
+    }
+
+    fun getTodayMarks(): LiveData<List<Mark>> {
+        return repository.getTodayMarks()
     }
 }

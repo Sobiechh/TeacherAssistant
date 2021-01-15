@@ -20,13 +20,19 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
         repository = StudentRepository(studentDao)
         readAllData = repository.readAllData
         viewModelScope.launch {
-            repository.mockData()
+//            repository.mockData()
         }
     }
 
     fun addStudent(student: Student) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addStudent(student)
+        }
+    }
+
+    fun deleteStudent(student: Student) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteStudent(student)
         }
     }
 

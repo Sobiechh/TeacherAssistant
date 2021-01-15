@@ -7,11 +7,16 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Student.Student
+import com.example.teacherassistant.viewModel.StudentViewModel
+import com.example.teacherassistant.viewModel.SubjectGroupViewModel
 import kotlinx.android.synthetic.main.student_custom_row.view.*
 
 class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
 
     private var studentList = emptyList<Student>()
+
+    private lateinit var mStudentViewModel: StudentViewModel
+    private lateinit var mSubjectGroupViewModel: SubjectGroupViewModel
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -35,10 +40,21 @@ class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
             val action = StudentListFragmentDirections.actionStudentListFragmentToStudentUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
+
+        //delete button click
+        holder.itemView.btn_del.setOnClickListener {
+            mStudentViewModel.deleteStudent(currentItem)
+            mSubjectGroupViewModel.deleteEmptyStudentGroup(currentItem.nameStudent.toString(), currentItem.surnameStudent.toString())
+        }
     }
 
     fun setData(student: List<Student>){
         this.studentList = student
         notifyDataSetChanged()
+    }
+
+    fun setVM(studentViewModel: StudentViewModel, subjectGroupViewModel: SubjectGroupViewModel){
+        this.mStudentViewModel = studentViewModel
+        this.mSubjectGroupViewModel = subjectGroupViewModel
     }
 }

@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Student.Student
 import com.example.teacherassistant.viewModel.StudentViewModel
+import com.example.teacherassistant.viewModel.SubjectGroupViewModel
 import kotlinx.android.synthetic.main.fragment_student_update.*
 import kotlinx.android.synthetic.main.fragment_student_update.view.*
 
@@ -21,6 +22,7 @@ class StudentUpdateFragment : Fragment() {
     private val args by navArgs<StudentUpdateFragmentArgs>()
 
     private lateinit var mStudentViewModel: StudentViewModel
+    private lateinit var mSubjectGroupViewModel: SubjectGroupViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -28,6 +30,7 @@ class StudentUpdateFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_student_update, container, false)
 
         mStudentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
+        mSubjectGroupViewModel = ViewModelProvider(this).get(SubjectGroupViewModel::class.java)
 
         view.updateFirstName_et.setText(args.currentStudent.nameStudent)
         view.updateLastName_et.setText(args.currentStudent.surnameStudent)
@@ -49,6 +52,10 @@ class StudentUpdateFragment : Fragment() {
             // Update Current Student
             mStudentViewModel.updateStudent(updatedStudent)
             Toast.makeText(requireContext(), "Updated successfully!", Toast.LENGTH_SHORT).show()
+
+            // Update Subject Group
+            mSubjectGroupViewModel.updateStudentNameInStudentGrup(args.currentStudent.nameStudent.toString(), args.currentStudent.surnameStudent.toString(), firstName, lastName)
+
             //Navigate back
             findNavController().navigate(R.id.action_studentUpdateFragment_to_studentListFragment)
         }else{

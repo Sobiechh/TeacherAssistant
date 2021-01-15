@@ -17,4 +17,8 @@ interface MarkDao {
 
     @Query("DELETE FROM mark_table")
     suspend fun clearTable()
+
+    @Query("SELECT * FROM mark_table WHERE DATE('now', '-1 days')")
+    fun getTodayMarks(): LiveData<List<Mark>>
+
 }

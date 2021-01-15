@@ -11,11 +11,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.R
 import com.example.teacherassistant.viewModel.StudentViewModel
+import com.example.teacherassistant.viewModel.SubjectGroupViewModel
 import kotlinx.android.synthetic.main.fragment_student_list.view.*
 
 class StudentListFragment : Fragment() {
 
     private lateinit var mStudentViewModel: StudentViewModel
+    private lateinit var mSubjectGroupViewModel: SubjectGroupViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,9 +32,13 @@ class StudentListFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        // SubjectGroupViewModel
+        mSubjectGroupViewModel = ViewModelProvider(this).get(SubjectGroupViewModel::class.java)
+
         // StudentViewModel
         mStudentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
         mStudentViewModel.readAllData.observe(viewLifecycleOwner, Observer { student ->
+            adapter.setVM(mStudentViewModel, mSubjectGroupViewModel)
             adapter.setData(student)
         })
 

@@ -25,7 +25,6 @@ class listAdapter : RecyclerView.Adapter<listAdapter.MyViewHolder>()  {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = subjectGroupList[position]
-        holder.itemView.id_txt.text = currentItem.id.toString()
         holder.itemView.firstName_txt.text = currentItem.student.nameStudent.toString()
         holder.itemView.lastName_txt.text = currentItem.student.surnameStudent.toString()
 

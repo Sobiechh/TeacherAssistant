@@ -38,7 +38,7 @@ class listAdapterAddStudent : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
 
         //add button click
         holder.itemView.btn_add.setOnClickListener{
-            val idStudent = currentItem.student.idStudent
+            val idStudent = currentItem.student.idStudent.toInt()
             val firstName = currentItem.student.nameStudent.toString()
             val lastName = currentItem.student.surnameStudent.toString()
             val idSubject = arguments[0]
@@ -47,6 +47,9 @@ class listAdapterAddStudent : RecyclerView.Adapter<listAdapter.MyViewHolder>() {
             val subjectGroup = SubjectGroup(0, Student(idStudent, firstName, lastName), Subject(idSubject.toInt(), nameSubject))
             // Add to database
             mSubjectGroupViewModel.addSubjectGroup(subjectGroup)
+
+            // delete empty student group
+            mSubjectGroupViewModel.deleteEmptyStudentGroup(firstName, lastName)
         }
 
     }

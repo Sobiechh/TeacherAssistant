@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "subject_table")
-data class Subject (
+data class Subject(
         @PrimaryKey(autoGenerate = true)
         val idSubject: Int,
         val nameSubject: String

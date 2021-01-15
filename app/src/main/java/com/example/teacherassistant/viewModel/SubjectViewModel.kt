@@ -20,7 +20,7 @@ class SubjectViewModel(application: Application) : AndroidViewModel(application)
         repository = SubjectRepository(subjectDao)
         readAllData = repository.readAllData
         viewModelScope.launch {
-            repository.mockData()
+//            repository.mockData()
         }
     }
 
